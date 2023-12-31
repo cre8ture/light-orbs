@@ -1,0 +1,214 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+body {
+    animation: bodyBackgroundColorChange 1000s linear infinite;
+}
+
+@keyframes bodyBackgroundColorChange {
+    0%, 100% {
+        background-color: royalblue; /* darker color */
+    }
+    50% {
+        background-color: #FFFFFF; /* lighter color */
+    }
+}
+
+#left-div {
+  flex: 1;
+  position: relative;
+  background: royalblue;
+  animation: bodyBackgroundColorChange 1000s linear infinite;
+
+}
+
+
+@keyframes bodyBackgroundColorChange {
+    0%, 100% {
+        background-color:  royalblue; /* darker color */
+    }
+    50% {
+        background-color: #FFFFFF; /* lighter color */
+    }
+}
+#right-div {
+  width: 100%; /* Change this from flex: 1 to width: 100% */
+  height: 100%;
+  background: black;
+  transform: skewX(
+    -30deg
+  ); /* Change this from rotate(45deg) to skewX(-30deg) */
+  transform-origin: bottom right;
+  position: absolute;
+  right: -25%; /* Add this to move the skewed div to the right */
+}
+#car-light {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  position: absolute;
+  /* background: red; */
+  background: radial-gradient(circle at center, yellow, transparent);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  opacity: 1;
+  filter: blur(5px);
+  color: yellow;
+  animation: carLight 15s linear infinite; /* Increase the duration of the animation */
+}
+
+@keyframes carLight {
+  0% {
+    transform: translateX(-100%) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0%) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(100%) scale(30); /* Increase the scale */
+    opacity: 0;
+  }
+}
+
+#red-light {
+  position: absolute;
+  background: radial-gradient(
+    circle at center,
+    red,
+    transparent
+  ); /* Use a radial gradient to create the light effect */
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  opacity: 1;
+  filter: blur(5px);
+  animation: redLightFade 10s linear infinite; /* Use a new animation */
+}
+
+#red-light {
+  bottom: 0;
+  left: 0;
+}
+
+@keyframes redLightFade {
+  0% {
+    transform: translateX(0%) scale(1);
+    opacity: 1; /* Start fully visible */
+  }
+  100% {
+    transform: translateX(100%) scale(0.5); /* Decrease the scale to make the light appear to move away */
+    opacity: 0; /* Fade out */
+  }
+}
+
+@keyframes moveAndShrink {
+  0% {
+    transform: translate(0, 0) scale(1);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 1);
+  }
+  100% {
+    transform: translateX(100px) translate(50%, -100vh) scale(0.5); /* Move right 100px and up 100px */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  }
+}
+
+#red-light2 {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  bottom: 0;
+  border-radius: 50%;
+  filter: blur(2px); /* Add a blur effect */
+  background: radial-gradient(
+    circle at center,
+    red,
+    transparent
+  ); /* Use a radial gradient to create the light effect */
+
+  animation: moveAndShrink 5s linear forwards;
+}
+#orb {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  animation: glowingOrb 18s linear infinite;
+}
+
+@keyframes glowingOrb {
+  0% {
+    transform: scale(1);
+    right: 0;
+    background-color: grey;
+    box-shadow: 0 0 10px grey;
+    opacity: 0;
+  }
+  15% {
+    transform: scale(1);
+    right: 0;
+    background-color: grey;
+    box-shadow: 0 0 10px grey;
+    opacity: 0.4;
+  }
+  25% {
+    transform: scale(1.5);
+    right: 25%;
+    background-color: orange;
+    box-shadow: 0 0 20px orange;
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(2);
+    right: 50%;
+    background-color: yellow;
+    box-shadow: 0 0 30px yellow;
+    opacity: 0.7;
+  }
+  75% {
+    transform: scale(2.5);
+    right: 75%;
+    background-color: whitesmoke;
+    box-shadow: 0 0 40px whitesmoke;
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(3);
+    right: 100%;
+    background-color: pink;
+    box-shadow: 0 0 50px pink;
+    opacity: 0.9;
+  }
+}
+
+#outer-orb {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 1px;
+  height: 1px;
+  opacity: 0.1;
+  background-color: lightblue;
+  border: 5px solid whitesmoke;
+  border-radius: 50%;
+  animation: pulsatingOrb 100s linear infinite;
+}
+
+@keyframes pulsatingOrb {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(5.5);
+  }
+}
